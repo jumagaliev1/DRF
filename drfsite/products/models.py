@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -27,6 +28,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     upload_date = models.DateField(auto_now_add=True)
+    user = models.ForeignKey(User, verbose_name='User', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.title)
